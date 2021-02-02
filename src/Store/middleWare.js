@@ -8,7 +8,6 @@ import {
 import { fetchMovies, fetchCharacters } from '../Utils'
 
 const apiMiddleWare = ({ dispatch }) => (next) => (action) => {
-  debugger
   if (action.type === GET_FILMS_FROM_API) {
     fetchMovies().then((data) => {
       dispatch(getFilms(data))

@@ -80,7 +80,7 @@ const Search = (props) => {
           })}
       </ul>
       {currentQuery !== '' && filteredMovies.length === 0 && (
-        <div>No Result</div>
+        <div className="no-result-div">No Result</div>
       )}
     </div>
   )
