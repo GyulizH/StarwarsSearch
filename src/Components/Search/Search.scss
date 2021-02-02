@@ -1,0 +1,38 @@
+.app-container{
+  width: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search-bar-container{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  p {
+    font-size: 27px;
+    font-family: Helvetica;
+    color: darkblue;
+  }
+  input{
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+    font-size:19px;
+    color:black;
+    padding: 18px;
+    border:solid darkblue 1.5px;
+  }
+}
+
+.search-results{
+  margin: auto;
+  width: 50%;
+  padding: 0;
+}
