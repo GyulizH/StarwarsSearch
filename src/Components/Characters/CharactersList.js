@@ -1,15 +1,27 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 
 import Character from '../Character/Character'
 
 import './CharactersList.scss'
 
+import {getCharactersFromAPI} from "../../Store/Search/SearchActions";
+
 const CharactersList = (props) => {
+    const movieId = props.match.params.id;
+    const dispatch =  useDispatch()
+
+  const {data:movies,isLoading} = useSelector(state => state.movies)
   const characters = useSelector((state) => state.characters)
+
   useEffect(() => {
-    console.log(characters, 'characters')
-  }, [])
+    if(!isLoading){
+        const movie = movies.find( m => m.id === movieId)
+        if(movie && movie.characters){
+            dispatch(getCharactersFromAPI(movie.characters))
+        }
+    }
+  }, [isLoading])
 
   const goBack = () => {
     props.history.push('/')
