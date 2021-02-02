@@ -8,7 +8,6 @@ let initialState = {
 
 export const AllFilmsReducer = (state = initialState.movies, action) => {
   if (action.type === GET_FILMS) {
-    console.log(action.payload, 'action payload')
     return [...action.payload]
   }
   return state

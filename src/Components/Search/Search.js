@@ -15,7 +15,6 @@ import { debounce } from '../../Utils'
 const Search = (props) => {
   const dispatch = useDispatch()
   const movies = useSelector((state) => {
-    console.log('state', state)
     return state.movies
   })
   const [filteredMovies, setMovies] = useState([])
@@ -23,9 +22,6 @@ const Search = (props) => {
 
   useEffect(() => {}, [filteredMovies])
 
-  const fetchFilms = () => {
-    dispatch(getFilms())
-  }
   const handleInput = debounce((e) => {
     dispatch(getFilms())
     let query = e.target.value
