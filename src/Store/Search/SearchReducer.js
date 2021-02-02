@@ -3,8 +3,8 @@ import { act } from '@testing-library/react'
 
 let initialState = {
   movies: {
-    isLoading:true,
-    data:[]
+    isLoading: true,
+    data: [],
   },
   characters: [],
 }
@@ -12,13 +12,15 @@ let initialState = {
 export const AllFilmsReducer = (state = initialState.movies, action) => {
   if (action.type === GET_FILMS) {
     return {
-      isLoading:false,
-      data: [...action.payload.map(movie => {
-        const pathList = new URL(movie.url).pathname.split('/')
-        const id = pathList[pathList.length - 2]
+      isLoading: false,
+      data: [
+        ...action.payload.map((movie) => {
+          const pathList = new URL(movie.url).pathname.split('/')
+          const id = pathList[pathList.length - 2]
 
-        return { id, ...movie }
-      })]
+          return { id, ...movie }
+        }),
+      ],
     }
   }
   return state
