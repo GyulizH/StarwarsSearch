@@ -3,26 +3,25 @@ import { useSelector, useDispatch } from 'react-redux'
 import { BrowserRouter, Link, Route } from 'react-router-dom'
 import {
   getFilmsFromAPI,
-    getFilms,
+  getFilms,
   getCharactersFromAPI,
 } from '../../Store/Search/SearchActions'
 
 import FilmCard from '../Card/FilmCard'
 import './Search.scss'
 
-import {debounce} from "../../Utils";
+import { debounce } from '../../Utils'
 
 const Search = (props) => {
   const dispatch = useDispatch()
   const movies = useSelector((state) => {
-    console.log("state",state)
+    console.log('state', state)
     return state.movies
   })
   const [filteredMovies, setMovies] = useState([])
   const [currentQuery, setQuery] = useState('')
 
-  useEffect(() => {
-  }, [filteredMovies])
+  useEffect(() => {}, [filteredMovies])
 
   const fetchFilms = () => {
     dispatch(getFilms())
@@ -39,8 +38,7 @@ const Search = (props) => {
     } else {
       setMovies([])
     }
-  },500);
-
+  }, 500)
 
   const goToCharacterList = (list, title) => {
     dispatch(getCharactersFromAPI(list))

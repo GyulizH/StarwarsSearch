@@ -17,7 +17,7 @@ const CharactersList = (props) => {
   return (
     <div className="characters-list-container">
       <div className="characters-list-title-container">
-          <button onClick={goBack}>BACK</button>
+        <button onClick={goBack}>BACK</button>
         <p>CHARACTER LIST OF THE MOVIE TITLE</p>
       </div>
       <div className="characters-list">

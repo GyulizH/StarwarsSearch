@@ -11,13 +11,14 @@ const apiMiddleWare = ({ dispatch }) => (next) => (action) => {
   debugger
   if (action.type === GET_FILMS_FROM_API) {
     fetchMovies().then((data) => {
-      dispatch(getFilms(data))})
+      dispatch(getFilms(data))
+    })
   } else if (action.type === GET_CHARACTERS_FROM_API) {
     let queries = action.queries
     queries.forEach((query) => {
       fetchCharacters(query).then((data) => dispatch(getCharacters(data)))
     })
-  }else{
+  } else {
     next(action)
   }
 }

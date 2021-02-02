@@ -7,7 +7,11 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Search} />
-        <Route path="/:movieTitle/characters" exact component={CharactersList} />
+        <Route
+          path="/:movieTitle/characters"
+          exact
+          component={CharactersList}
+        />
       </Switch>
     </BrowserRouter>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Character = ({ name, gender, birthYear, height,className }) => {
+const Character = ({ name, gender, birthYear, height, className }) => {
   return (
     <div className={className}>
       <p>Name : {name}</p>
