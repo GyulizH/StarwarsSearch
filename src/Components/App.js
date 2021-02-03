@@ -7,12 +7,12 @@ import Search from './Search/Search'
 import CharactersList from './Characters/CharactersList'
 
 const App = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // This will load the list of movies at the beginning
     dispatch(getFilms())
-  }, [])
+  }, [dispatch]);
 
   return (
     <BrowserRouter>
@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/:id/characters" exact component={CharactersList} />
       </Switch>
     </BrowserRouter>
-  )
+  );
 }
 
 export default App

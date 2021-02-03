@@ -18,7 +18,7 @@ const FilmCard = ({ title, director, releaseDate, children, onClick }) => {
       </p>
       <button onClick={onClick}>{children}</button>
     </div>
-  )
+  );
 }
 
 export default FilmCard

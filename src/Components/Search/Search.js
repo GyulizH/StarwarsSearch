@@ -4,7 +4,6 @@ import { BrowserRouter, Link } from 'react-router-dom'
 
 import {
   getFilms,
-  getCharactersFromAPI,
 } from '../../Store/Search/SearchActions'
 import { debounce } from '../../Utils'
 import FilmCard from '../Card/FilmCard'
@@ -12,35 +11,35 @@ import FilmCard from '../Card/FilmCard'
 import './Search.scss'
 
 const Search = (props) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const { data: movies, isLoading } = useSelector((state) => state.movies)
+  const { data: movies, isLoading } = useSelector((state) => state.movies);
 
-  const [filteredMovies, setMovies] = useState([])
-  const [currentQuery, setQuery] = useState('')
+  const [filteredMovies, setMovies] = useState([]);
+  const [currentQuery, setQuery] = useState('');
 
   useEffect(() => {
     dispatch(getFilms())
-  }, [])
+  }, []);
 
   useEffect(() => {
     const filteredMovies = movies.filter((movie) =>
       movie.title.toLowerCase().includes(currentQuery)
-    )
+    );
 
     if (currentQuery !== '') {
-      setMovies(filteredMovies)
+      setMovies(filteredMovies);
     } else {
-      setMovies([])
+      setMovies([]);
     }
-  }, [currentQuery])
+  }, [currentQuery]);
 
   const handleInput = debounce((e) => {
-    setQuery(e.target.value.trim())
+    setQuery(e.target.value.trim());
   }, 500)
 
   const goToCharacterList = (id) => {
-    props.history.push(`/${id}/characters`)
+    props.history.push(`/${id}/characters`);
   }
 
   return (
@@ -86,7 +85,7 @@ const Search = (props) => {
         <div className="no-result-or-loading-div">No Result</div>
       )}
     </div>
-  )
+  );
 }
 
 export default Search

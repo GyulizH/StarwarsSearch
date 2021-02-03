@@ -1,5 +1,4 @@
 import { GET_FILMS, GET_CHARACTERS } from './SearchActions'
-import { act } from '@testing-library/react'
 
 let initialState = {
   movies: {
@@ -15,15 +14,15 @@ export const AllFilmsReducer = (state = initialState.movies, action) => {
       isLoading: false,
       data: [
         ...action.payload.map((movie) => {
-          const pathList = new URL(movie.url).pathname.split('/')
-          const id = pathList[pathList.length - 2]
+          const pathList = new URL(movie.url).pathname.split('/');
+          const id = pathList[pathList.length - 2];
 
           return { id, ...movie }
         }),
       ],
     }
   }
-  return state
+  return state;
 }
 
 export const AllCharactersReducer = (
@@ -31,7 +30,7 @@ export const AllCharactersReducer = (
   action
 ) => {
   if (action.type === GET_CHARACTERS) {
-    return [...state, action.payload]
+    return [...state, action.payload];
   }
-  return state
+  return state;
 }

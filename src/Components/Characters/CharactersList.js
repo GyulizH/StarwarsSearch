@@ -1,30 +1,30 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import Character from '../Character/Character'
+import Character from '../Character/Character';
 
-import './CharactersList.scss'
+import './CharactersList.scss';
 
-import { getCharactersFromAPI } from '../../Store/Search/SearchActions'
+import { getCharactersFromAPI } from '../../Store/Search/SearchActions';
 
 const CharactersList = (props) => {
-  const movieId = props.match.params.id
-  const dispatch = useDispatch()
+  const movieId = props.match.params.id;
+  const dispatch = useDispatch();
 
-  const { data: movies, isLoading } = useSelector((state) => state.movies)
-  const characters = useSelector((state) => state.characters)
+  const { data: movies, isLoading } = useSelector((state) => state.movies);
+  const characters = useSelector((state) => state.characters);
 
   useEffect(() => {
     if (!isLoading) {
-      const movie = movies.find((m) => m.id === movieId)
+      const movie = movies.find((m) => m.id === movieId);
       if (movie && movie.characters) {
-        dispatch(getCharactersFromAPI(movie.characters))
+        dispatch(getCharactersFromAPI(movie.characters));
       }
     }
-  }, [isLoading])
+  }, [isLoading]);
 
   const goBack = () => {
-    props.history.push('/')
+    props.history.push('/');
   }
   return (
     <div className="characters-list-container">
@@ -37,6 +37,7 @@ const CharactersList = (props) => {
           const { name, gender, birth_year, height } = character
           return (
             <Character
+              key={name}
               name={name}
               gender={gender}
               birthYear={birth_year}
