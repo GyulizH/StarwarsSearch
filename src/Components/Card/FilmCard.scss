@@ -13,3 +13,14 @@
     font-size: 19px;
   }
 }
+
+.card-container > p span:nth-child(1){
+  display: block;
+  float: left;
+  text-align: left;
+  width: 20%;
+}
+.card-container > p span:nth-child(1):after {
+  content: ":";
+  padding-left: 10px;
+}

@@ -14,6 +14,7 @@ export const AllFilmsReducer = (state = initialState.movies, action) => {
       isLoading: false,
       data: [
         ...action.payload.map((movie) => {
+          //since the api response for a movie does not involve an id, i created a unique id for each movie
           const pathList = new URL(movie.url).pathname.split('/');
           const id = pathList[pathList.length - 2];
 

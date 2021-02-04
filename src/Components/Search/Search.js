@@ -20,7 +20,7 @@ const Search = (props) => {
 
   useEffect(() => {
     dispatch(getFilms())
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const filteredMovies = movies.filter((movie) =>
@@ -32,8 +32,9 @@ const Search = (props) => {
     } else {
       setMovies([]);
     }
-  }, [currentQuery]);
+  }, [currentQuery,movies]);
 
+  //I use a debounce function to make sure a logical keyword has been entered to the input bar.
   const handleInput = debounce((e) => {
     setQuery(e.target.value.trim());
   }, 500)

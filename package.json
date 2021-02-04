@@ -19,7 +19,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "prettier:fix": "prettier 'src/**/*.{t,j}s' --write"
   },
   "eslintConfig": {

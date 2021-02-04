@@ -15,13 +15,14 @@ const CharactersList = (props) => {
   const characters = useSelector((state) => state.characters);
 
   useEffect(() => {
+    //here I find the movie for which I will show the character list only if the character list for the movie is not already in redux state
     if (!isLoading) {
       const movie = movies.find((m) => m.id === movieId);
-      if (movie && movie.characters) {
+      if (movie && movie.characters && characters.length ===0) {
         dispatch(getCharactersFromAPI(movie.characters));
       }
     }
-  }, [isLoading]);
+  }, [isLoading,dispatch,movieId,movies,characters.length]);
 
   const goBack = () => {
     props.history.push('/');
